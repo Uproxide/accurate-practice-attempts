@@ -1,3 +1,7 @@
-# Template Mod
+# Accurate Practice Attempts
+Adds practice attempts to the end screen, cause uh yea!
 
-Edit about.md to change this
+TODO:
+Make it not show when not in practice
+
+[Join the Discord and Request me mods to make :3](https://discord.gg/gy4BrxmWrF)
