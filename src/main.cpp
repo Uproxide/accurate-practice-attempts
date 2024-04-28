@@ -62,25 +62,26 @@ class $modify(EndLevelLayer) {
 		if (practiceMode && !platformer) {
 			auto practiceAttemptsLabel = CCLabelBMFont::create("Practice Attempts: 1", "goldFont.fnt");
 
-			timeLabel->setPositionY(timeLabel->getPositionY() - 20);
-			jumpsLabel->setPositionY(jumpsLabel->getPositionY() - 20);
 			attemptsLabel->setPositionY(attemptsLabel->getPositionY() + 5);
+			practiceAttemptsLabel->setPositionY(attemptsLabel->getPositionY() - 21);
+			jumpsLabel->setPositionY(practiceAttemptsLabel->getPositionY() - 21);
+			timeLabel->setPositionY(jumpsLabel->getPositionY() - 21);
 
 			practiceAttemptsLabel->setPositionX(attemptsLabel->getPositionX());
-			practiceAttemptsLabel->setPositionY(attemptsLabel->getPositionY() - 20);
+			practiceAttemptsLabel->setPositionY(attemptsLabel->getPositionY() - 21);
 			practiceAttemptsLabel->setScale(0.8f);
 			practiceAttemptsLabel->setID("practice-attempts-label"_spr);
 			std::string pracAtt = fmt::format("Practice Attempts: {}", std::to_string(practiceAttempts));
 			practiceAttemptsLabel->setString(pracAtt.c_str());
 
 
-			this->addChild(practiceAttemptsLabel);
+			this->m_mainLayer->addChild(practiceAttemptsLabel);
 		}
 		else if (!practiceMode) {
-			if (this->getChildByID("uproxide.accupracatt/practice-attempts-label")) {
-				this->removeChildByID("uproxide.accupracatt/practice-attempts-label");
-				timeLabel->setPositionY(timeLabel->getPositionY() + 20);
-				jumpsLabel->setPositionY(jumpsLabel->getPositionY() + 20);
+			if (this->m_mainLayer->getChildByID("uproxide.accupracatt/practice-attempts-label")) {
+				this->m_mainLayer->removeChildByID("uproxide.accupracatt/practice-attempts-label");
+				timeLabel->setPositionY(timeLabel->getPositionY() + 21);
+				jumpsLabel->setPositionY(jumpsLabel->getPositionY() + 21);
 				attemptsLabel->setPositionY(attemptsLabel->getPositionY() - 5);
 			}
 		}
